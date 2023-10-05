@@ -1,6 +1,8 @@
 package com.nguyenanhthu.ptm.category.department.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.nguyenanhthu.ptm.user.model.UserModel;
 import com.nguyenanhthu.ptm.utils.DateAudit;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -12,6 +14,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "phong_dai")
@@ -44,5 +48,9 @@ public class DepartmentModel  extends DateAudit {
 
     @Column(name = "ghi_chu")
     private String note;/*ghi chú*/
+
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Set<UserModel> users = new HashSet<>();
 
 }

@@ -1,6 +1,8 @@
 package com.nguyenanhthu.ptm.user.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.nguyenanhthu.ptm.category.department.model.DepartmentModel;
 import com.nguyenanhthu.ptm.utils.DateAudit;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -81,5 +83,10 @@ public class UserModel extends DateAudit {
     @Comment("0: ngừng hoạt động; 1: hoạt động")
     @Enumerated(EnumType.ORDINAL)
     private ActiveStatus activeStatus;/*trạng thái hoạt động*/
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @JoinColumn(name = "phong_dai_id", insertable = false, updatable = false)
+    private DepartmentModel department;
 
 }
