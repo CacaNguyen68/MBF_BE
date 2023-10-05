@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "nguoi_dung")
 @Where(clause = "da_xoa IS NULL")
-@JsonIgnoreProperties()
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Getter(AccessLevel.PUBLIC)
 @Setter(AccessLevel.PUBLIC)
 @ToString
