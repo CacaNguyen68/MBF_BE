@@ -55,7 +55,6 @@ public class DepartmentSeederService {
                         departmentRepository.save(department);
                     }
                 }
-                System.out.println("Nạp dữ liệu phòng đài thành công!");
                 log.info("Nạp dữ liệu phòng đài thành công!");
             }
         } catch (Exception e) {
