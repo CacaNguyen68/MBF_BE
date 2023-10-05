@@ -89,4 +89,21 @@ public class UserModel extends DateAudit {
     @JoinColumn(name = "phong_dai_id", insertable = false, updatable = false)
     private DepartmentModel department;
 
+    public UserModel(String username, String password, String token, String fullName, String phone, String avatar, String position, Integer departmentId, String note, Gender gender, TypeAccount typeAccount, ActiveStatus activeStatus){
+        this.username = username;
+        this.password = password;
+        this.token = token;
+        this.fullName = fullName;
+        this.phone = phone;
+        this.avatar = avatar;
+        this.position = position;
+        this.departmentId = departmentId;
+        this.note = note;
+        this.gender = gender;
+        this.typeAccount = typeAccount;
+        this.activeStatus = activeStatus;
+    }
+
+    public UserModel() {
+    }
 }
